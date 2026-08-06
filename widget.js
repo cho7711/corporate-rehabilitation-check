@@ -150,7 +150,7 @@
     .rgdx-panel h3 { margin:0 0 10px; color:var(--navy); font-size:18px; }
     .rgdx-panel ul { margin:0; padding-left:20px; color:#45596b; line-height:1.75; }
     .rgdx-low-confidence { margin-top:14px; padding:14px 16px; border-radius:12px; background:#fff4dd; color:#765211; font-size:14px; line-height:1.6; }
-    .rgdx-followup { margin:22px 0 0; color:var(--navy); font-size:16px; font-weight:800; line-height:1.65; text-align:center; }
+    .rgdx-followup { margin:24px 0 0; padding:18px 20px; border-radius:12px; background:var(--blue); color:#fff; font-size:clamp(18px,2.5vw,22px); font-weight:900; line-height:1.55; text-align:center; box-shadow:0 10px 24px rgba(9,104,201,.20); }
     .rgdx-cta { display:flex; gap:10px; margin-top:22px; }
     .rgdx-cta a, .rgdx-cta button { display:flex; flex:1; align-items:center; justify-content:center; min-height:52px; border-radius:11px; text-decoration:none; font-weight:800; }
     .rgdx-restart { border:1px solid var(--line); background:#fff; color:#405468; cursor:pointer; }
@@ -250,9 +250,9 @@
       <div class="rgdx-panel"><h3>우선 확인할 위기 신호</h3><ul>${signals.map(x => `<li>${x}</li>`).join("")}</ul></div>
       <div class="rgdx-panel"><h3>${viabilityTitle}</h3><ul>${viabilityItems.map(x => `<li>${x}</li>`).join("")}</ul></div>
       ${r < 40 ? `<div class="rgdx-low-confidence"><strong>자료 신뢰도가 낮습니다.</strong><br>현재 결과의 정확도가 제한될 수 있으므로 재무제표, 세금신고자료, 채권자·자산 목록을 먼저 확보해 주세요.</div>` : ""}
-      <p class="rgdx-followup">아래 상담문의를 통해 보다 정확한 진단을 받아보세요.</p>
       <div class="rgdx-cta"><button type="button" class="rgdx-restart">다시 진단하기</button></div>
       <p class="rgdx-disclaimer">본 결과는 입력된 제한적 정보를 기초로 한 일반 안내입니다. 법원의 회생절차 개시·인가 여부, 채무조정 가능 범위 또는 사건 결과를 보장하지 않으며, 구체적인 법률·회계 검토를 대체하지 않습니다. 입력값은 이 페이지에서 저장하거나 외부로 전송하지 않습니다.</p>
+      <p class="rgdx-followup">아래 상담문의를 통해 보다 정확한 진단을 받아보세요</p>
     </div>`);
     root.querySelector(".rgdx-restart").addEventListener("click", () => { state.index = 0; state.answers = {}; renderIntro(); });
   }
