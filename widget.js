@@ -118,7 +118,7 @@
     .rgdx-progress span { display:block; height:100%; background:var(--blue); border-radius:inherit; transition:width .25s ease; }
     .rgdx-body { padding:32px 38px 38px; min-height:510px; }
     .rgdx-section { display:inline-flex; padding:6px 10px; margin-bottom:14px; border-radius:999px; background:#eaf4ff; color:var(--blue); font-size:12px; font-weight:800; }
-    .rgdx-question { margin:0 0 10px; font-size:clamp(21px,3vw,29px); line-height:1.38; letter-spacing:-.035em; color:var(--navy); }
+    .rgdx-question { margin:0 0 10px; font-size:clamp(20px,2.6vw,26px); line-height:1.42; letter-spacing:-.03em; color:var(--navy); }
     .rgdx-help { margin:0 0 20px; color:var(--muted); font-size:14px; line-height:1.65; }
     .rgdx-options { display:grid; gap:11px; margin-top:22px; }
     .rgdx-option { display:flex; align-items:center; gap:13px; width:100%; min-height:57px; padding:14px 17px; border:1px solid var(--line); border-radius:13px; background:#fff; color:var(--text); text-align:left; font-size:15px; line-height:1.45; cursor:pointer; transition:.16s ease; }
@@ -150,11 +150,11 @@
     .rgdx-panel h3 { margin:0 0 10px; color:var(--navy); font-size:18px; }
     .rgdx-panel ul { margin:0; padding-left:20px; color:#45596b; line-height:1.75; }
     .rgdx-low-confidence { margin-top:14px; padding:14px 16px; border-radius:12px; background:#fff4dd; color:#765211; font-size:14px; line-height:1.6; }
+    .rgdx-followup { margin:22px 0 0; color:var(--navy); font-size:16px; font-weight:800; line-height:1.65; text-align:center; }
     .rgdx-cta { display:flex; gap:10px; margin-top:22px; }
     .rgdx-cta a, .rgdx-cta button { display:flex; flex:1; align-items:center; justify-content:center; min-height:52px; border-radius:11px; text-decoration:none; font-weight:800; }
-    .rgdx-consult { background:var(--blue); color:#fff !important; }
     .rgdx-restart { border:1px solid var(--line); background:#fff; color:#405468; cursor:pointer; }
-    .rgdx-disclaimer { margin:20px 0 0; color:#7a8998; font-size:12px; line-height:1.65; }
+    .rgdx-disclaimer { margin:20px 0 0; padding:16px 18px; border-left:4px solid var(--blue); border-radius:10px; background:#eef7ff; color:var(--blue); font-size:15px; font-weight:700; line-height:1.75; }
     @media (max-width:680px) {
       .rgdx-head,.rgdx-body,.rgdx-intro,.rgdx-results { padding-left:21px; padding-right:21px; }
       .rgdx-progress-wrap { padding-left:21px; padding-right:21px; }
@@ -250,7 +250,8 @@
       <div class="rgdx-panel"><h3>우선 확인할 위기 신호</h3><ul>${signals.map(x => `<li>${x}</li>`).join("")}</ul></div>
       <div class="rgdx-panel"><h3>${viabilityTitle}</h3><ul>${viabilityItems.map(x => `<li>${x}</li>`).join("")}</ul></div>
       ${r < 40 ? `<div class="rgdx-low-confidence"><strong>자료 신뢰도가 낮습니다.</strong><br>현재 결과의 정확도가 제한될 수 있으므로 재무제표, 세금신고자료, 채권자·자산 목록을 먼저 확보해 주세요.</div>` : ""}
-      <div class="rgdx-cta"><a class="rgdx-consult" href="https://www.royalgolden.co.kr/consulting" target="_top">상담 신청하기</a><button type="button" class="rgdx-restart">다시 진단하기</button></div>
+      <p class="rgdx-followup">아래 상담문의를 통해 보다 정확한 진단을 받아보세요.</p>
+      <div class="rgdx-cta"><button type="button" class="rgdx-restart">다시 진단하기</button></div>
       <p class="rgdx-disclaimer">본 결과는 입력된 제한적 정보를 기초로 한 일반 안내입니다. 법원의 회생절차 개시·인가 여부, 채무조정 가능 범위 또는 사건 결과를 보장하지 않으며, 구체적인 법률·회계 검토를 대체하지 않습니다. 입력값은 이 페이지에서 저장하거나 외부로 전송하지 않습니다.</p>
     </div>`);
     root.querySelector(".rgdx-restart").addEventListener("click", () => { state.index = 0; state.answers = {}; renderIntro(); });
